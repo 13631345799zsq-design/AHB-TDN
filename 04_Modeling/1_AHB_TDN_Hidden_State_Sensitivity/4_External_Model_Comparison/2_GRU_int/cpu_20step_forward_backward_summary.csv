@@ -1,2 +1,0 @@
-﻿device,cpu,checkpoint,backward_target,batch_size,rollout_steps,num_threads,warmup_runs,timed_runs,forward_20_steps_mean_ms,forward_20_steps_std_ms,forward 20 steps mean ± std (ms),backward_20_steps_mean_ms,backward_20_steps_std_ms,backward 20 steps mean ± std (ms)
-cpu,,random initialization,cooling control sequence,1,20,1,100,1000,14.127995336,0.197364077,14.127995 ± 0.197364,6.672277469,0.041333470,6.672277 ± 0.041333
