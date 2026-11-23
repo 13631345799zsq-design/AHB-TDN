@@ -2,7 +2,7 @@
 
 This repository provides the firmware, operating-command collection, data-acquisition software, thermal-modeling programs, and terminal PI/MPC controllers accompanying the AHB-TDN research on transient air cooling and dynamic thermal management of multi-heat-source electronic devices.
 
-The experimental database is distributed separately as **`Database.zip` in [GitHub Releases](https://github.com/13631345799zsq-design/AHB-TDN/releases)**. Download the code and the database from the same release when reproducing an experiment.
+The experimental database is distributed separately as **`Database.rar` in [GitHub Releases](https://github.com/13631345799zsq-design/AHB-TDN/releases)**. Download the code and the database from the same release when reproducing an experiment.
 
 See [Supplementary Materials.pdf](Supplementary%20Materials.pdf) for the supplementary descriptions, figures, tables, controller-tuning results, and model architectures.
 
@@ -38,8 +38,8 @@ AHB-TDN/
 ## 2. Download and setup
 
 1. Download or clone the repository. For a fixed experimental version, use the source code associated with that release tag.
-2. Open [Releases](https://github.com/13631345799zsq-design/AHB-TDN/releases), select the matching version, and download the attached `Database.zip`. The automatically generated **Source code** archives do not contain the database.
-3. Extract `Database.zip` directly into the repository root. The archive contains the top-level `Database/` folder; avoid nesting it as `Database/Database/`.
+2. Open [Releases](https://github.com/13631345799zsq-design/AHB-TDN/releases), select the matching version, and download the attached `Database.rar`. The automatically generated **Source code** archives do not contain the database.
+3. Extract `Database.rar` with a RAR-compatible archive utility into the repository root. The archive contains the top-level `Database/` folder; avoid nesting it as `Database/Database/`.
 4. Confirm that `Database/0_Dataset/Data_AT40_D1_05/1.pkl` exists.
 5. Install the dependencies needed for the selected task.
 
@@ -164,11 +164,11 @@ The serial port and IP address are examples. Check the actual connection setting
 
 ## 8. Reproducibility and versioning
 
-Use a matching code tag and `Database.zip` attachment from the same release. The database includes the distributed raw acquisition records and six processed datasets; the repository includes the command collection, preprocessing and modeling code, firmware, and runtime controllers.
+Use a matching code tag and `Database.rar` attachment from the same release. The database includes the distributed raw acquisition records and six processed datasets; the repository includes the command collection, preprocessing and modeling code, firmware, and runtime controllers.
 
 The supplied materials provide inputs and procedures for rerunning the covered experiments. Exact reproduction of every manuscript result additionally depends on the experiment-specific settings, trained checkpoints, software environment, and hardware conditions. A complete archive of online closed-loop control recordings is not included in this package.
 
-The release database archive is accompanied by `SHA256SUMS.txt` for download verification. Releases and data links become available when the corresponding assets are published; preparing this local package does not itself publish a release.
+If `SHA256SUMS.txt` is provided with the release, use its checksum entry for `Database.rar` to verify the download. Releases and data links become available when the corresponding assets are published; preparing this local package does not itself publish a release.
 
 ## 9. Citation
 
