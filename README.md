@@ -16,6 +16,10 @@ AHB-TDN/
 |-- 02_Command/                 # Command generator and 120 operating-command CSVs
 |-- 03_Date_Software/           # Desktop data-acquisition and PI/MPC software
 |-- 04_Modeling/                # Model definitions, training, evaluation, and analysis
+|   |-- 1_AHB_TDN_Hidden_State_Sensitivity/
+|   |-- 2_LPTN_Heatsink_Point_Sensitivity/
+|   |-- 3_Internal_Ablation/
+|   |-- 4_External_Model_Comparison/
 |   `-- Data_Preprocessing/     # Data-processing scripts retained in Code
 |-- 05_Terminal_Program/        # PI, AHB-TDN-MPC, and LPTN-MPC terminal programs
 |-- Database/                  # Download separately from Releases
@@ -112,18 +116,19 @@ Configure the serial port and data-logger address for the experimental platform.
 
 ## 6. Thermal modeling, training, and evaluation
 
-`04_Modeling/` retains the supplied experiment directories:
+`04_Modeling/` organizes the modeling code into four experiment groups and a data-preprocessing directory:
 
 | Directory | Contents |
 | --- | --- |
 | `1_AHB_TDN_Hidden_State_Sensitivity/` | AHB-TDN hidden-state sensitivity experiments |
 | `2_LPTN_Heatsink_Point_Sensitivity/` | LPTN heatsink-point sensitivity experiments |
 | `3_Internal_Ablation/` | Internal ablation experiments |
-| `4_External_Model_Comparison/` | External model comparisons |
-| `2_Internal_Ablation/`, `3_External_Model_Comparison/` | Additional retained experiment directories with overlapping files |
+| `4_External_Model_Comparison/` | Comparisons of MLP, GRU, 1D-CNN, NODE, and AHB-TDN |
 | `Data_Preprocessing/` | Raw-data alignment, downsampling, sample construction, and repeatability analysis |
 
 Typical model directories contain a model-definition file, `_1_TRAIN_program.py`, and `_2_TEST_program.py`, with additional parameter-count, timing, plotting, or physical-consistency scripts where supplied.
+
+`4_External_Model_Comparison/` contains five model subdirectories: `1_MLP_int/`, `2_GRU_int/`, `3_1D-CNN_int_64/`, `4_NODE/`, and `5_AHB-TDN/`. Each includes model, training, testing, parameter-count, and CPU-timing programs, together with CPU-timing summary and per-run CSV files. The comparison directory also contains `Data_Record_CPU.xlsx` and `Data_Record_MeanAE.xlsx` as summary records.
 
 For example, from `04_Modeling/4_External_Model_Comparison/5_AHB-TDN/`:
 
