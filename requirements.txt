@@ -1,0 +1,11 @@
+# Combined dependencies for the supplied programs; versions are not pinned.
+numpy
+scipy
+pandas
+matplotlib
+torch
+PyQt5
+pyqtgraph
+pyserial
+pymodbus
+scikit-learn
