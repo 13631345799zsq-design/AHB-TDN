@@ -2,7 +2,7 @@
 
 This repository provides the firmware, operating-command collection, data-acquisition software, thermal-modeling programs, and terminal PI/MPC controllers accompanying the AHB-TDN research on transient air cooling and dynamic thermal management of multi-heat-source electronic devices.
 
-The experimental database is distributed separately as **`Database.rar` in [GitHub Releases](https://github.com/13631345799zsq-design/AHB-TDN/releases)**. Download the code and the database from the same release when reproducing an experiment.
+The experimental database is distributed separately as **`Database.rar` in [GitHub Releases](https://github.com/13631345799zsq-design/AHB-TDN/releases)**. The corrected code layout documented below is available on the `main` branch. See Section 8 for the distinction between the current code and the original `v1.0.0` source archives.
 
 See [Supplementary Materials.pdf](Supplementary%20Materials.pdf) for the supplementary descriptions, figures, tables, controller-tuning results, and model architectures.
 
@@ -33,12 +33,12 @@ AHB-TDN/
 `-- README.md
 ```
 
-`Database/` is excluded from normal Git tracking by `.gitignore`. The name `03_Date_Software` is retained from the original project and refers to data-acquisition software.
+The database is supplied as a Release attachment rather than as files in the Code section. After extraction, keep the local `Database/` folder beside the five numbered directories. The name `03_Date_Software` is retained from the original project and refers to data-acquisition software.
 
 ## 2. Download and setup
 
-1. Download or clone the repository. For a fixed experimental version, use the source code associated with that release tag.
-2. Open [Releases](https://github.com/13631345799zsq-design/AHB-TDN/releases), select the matching version, and download the attached `Database.rar`. The automatically generated **Source code** archives do not contain the database.
+1. Download or clone the current `main` branch for the corrected directory structure shown above. Record the code commit SHA when reporting results. See Section 8 before using the original `v1.0.0` source archives.
+2. Open [Releases](https://github.com/13631345799zsq-design/AHB-TDN/releases) and download the `Database.rar` attachment from the experimental-database release. The automatically generated **Source code** archives do not contain the database.
 3. Extract `Database.rar` with a RAR-compatible archive utility into the repository root. The archive contains the top-level `Database/` folder; avoid nesting it as `Database/Database/`.
 4. Confirm that `Database/0_Dataset/Data_AT40_D1_05/1.pkl` exists.
 5. Install the dependencies needed for the selected task.
@@ -88,7 +88,7 @@ Use the selected loader and preprocessing code as the reference for units, norma
 - `RTE/`: device configuration and startup files.
 - `Objects/project.hex`: compiled firmware image.
 
-Firmware development requires Keil MDK and the device support declared in the project, including `Keil.STM32F1xx_DFP.2.4.1`. Check pin assignments, serial settings, I2C addresses, and timers against the actual board before use. Compiler intermediate files are excluded from Git tracking.
+Firmware development requires Keil MDK and the device support declared in the project, including `Keil.STM32F1xx_DFP.2.4.1`. Check pin assignments, serial settings, I2C addresses, and timers against the actual board before use. Compiler intermediate files, listings, and build reports are retained with the Keil project. They are generated build artifacts; the firmware source, project configuration, and compiled HEX image are also included.
 
 ### Operating-command collection
 
@@ -164,11 +164,15 @@ The serial port and IP address are examples. Check the actual connection setting
 
 ## 8. Reproducibility and versioning
 
-Use a matching code tag and `Database.rar` attachment from the same release. The database includes the distributed raw acquisition records and six processed datasets; the repository includes the command collection, preprocessing and modeling code, firmware, and runtime controllers.
+The database includes the distributed raw acquisition records and six processed datasets; the repository includes the command collection, preprocessing and modeling code, firmware, and runtime controllers.
+
+**Code-version note:** the original `v1.0.0` tag was created before the `04_Modeling/` directory hierarchy was corrected. Its automatically generated **Source code** archives retain the earlier nested layout. Use the current `main` branch with the `Database.rar` attachment for the corrected layout described in this README. Editing `main` or this README does not change the existing tag.
+
+Record both the code commit SHA and the database release tag used for an experiment. For a future fixed code release, check that its tagged source archive follows the directory structure documented here.
 
 The supplied materials provide inputs and procedures for rerunning the covered experiments. Exact reproduction of every manuscript result additionally depends on the experiment-specific settings, trained checkpoints, software environment, and hardware conditions. A complete archive of online closed-loop control recordings is not included in this package.
 
-If `SHA256SUMS.txt` is provided with the release, use its checksum entry for `Database.rar` to verify the download. Releases and data links become available when the corresponding assets are published; preparing this local package does not itself publish a release.
+If `SHA256SUMS.txt` is provided with the release, use its checksum entry for `Database.rar` to verify the download.
 
 ## 9. Citation
 
